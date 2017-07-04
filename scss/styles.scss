@@ -1,20 +1,28 @@
 // Resets, Clearfix, etc
+@import "partials/_clearfix";
+@import "partials/_reset";
 
 // Variables
 
-// Media Query Ranges
+$dark-color: #87CEFA;
+$light-color: #FFB6C1;
+$bright-color: #5aebad;
+$padding: 50px;
 
 // Mixins
 
+@import "partials/_mixins";
+
+
 // Styles
 body{
-  background-color: orange;
+  background-color: $light-color;
   text-align: center;
   color: #EEE;
 }
 
 h1, h2, h3, h4{
-  font-family: "Helvetica Neue", "Helvetica", sans-serif;
+  @include font(25px, white, "Verdana", uppercase)
 }
 
 h1{
@@ -27,12 +35,60 @@ h2{
 
 
 .block_family{
-  max-width:350px;
+  max-width:300px;
   margin:auto;
 }
 
 .block_family li{
-  background-color: #222;
+  background-color: $bright-color;
   margin-bottom: 20px;
   padding: 20px;
+}
+
+// Media Query Ranges
+
+@media screen and (min-width: 600px){
+  body{
+  background-color: $dark-color;
+}
+
+.block_family{
+  @include block (600px, auto)
+}
+
+
+.block_family li{
+  @include block-li($bright-color, left, 42%, 0.55%, inline-block)
+}
+
+li:nth-child(2n+1){
+  background-color: $light-color;
+}
+
+h1, h2, h3, h4{
+@include font(25px, white, "Verdana", uppercase)
+}
+}
+
+@media screen and (min-width: 900px){
+  body{
+  background-color: $bright-color;
+}
+
+.block_family{
+  @include block (800px, auto)
+}
+
+.block_family li{
+  @include block-li($dark-color, left, 27%, 0.44%, inline-block)
+}
+
+li:nth-child(3n+2){
+  background-color: $light-color;
+}
+
+h1, h2, h3, h4{
+@include font(25px, white, "Verdana", uppercase)
+}
+
 }
