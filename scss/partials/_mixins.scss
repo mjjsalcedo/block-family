@@ -1,0 +1,30 @@
+@mixin font ($size, $color, $font-family, $uppercase){
+font-size: $size;
+color: $color;
+font-family: $font-family;
+text-transform: $uppercase;
+}
+
+@mixin block ($width, $margin){
+  max-width: $width;
+  margin: $margin;
+}
+
+@mixin block-li ($color, $direction, $width, $margin, $display){
+  background-color: $color;
+  float: $direction;
+  width: $width;
+  margin: $margin;
+  display: $display;
+}
+
+/* @mixin block-colors(){
+  li:nth-child(odd) {
+    background: red;
+}
+
+p:nth-child(even) {
+    background: blue;
+}
+}
+ */
